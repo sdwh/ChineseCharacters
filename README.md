@@ -2,6 +2,8 @@
 
 Traditional Chinese National Characters CNS, Unicode Number, and Stroke Count Correspondence Processing.
 
+[Mapping](/mapping.md)
+
 ## Coding
 
 - 4808 & 6343 (app.py)
