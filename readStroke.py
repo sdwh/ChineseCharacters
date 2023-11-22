@@ -6,6 +6,4 @@ def read_stroke(filename):
             data = line.strip().split('\t')
             if len(data) == 2:
                 stroke[data[0]] = data[1]
-    return stroke    
-    
-strokes = read_stroke('CNS_stroke.txt')
+    return stroke

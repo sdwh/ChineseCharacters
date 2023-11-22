@@ -31,12 +31,14 @@ def read_phonetic(filename):
                 phonetic[data[0]] = data[1]
     return phonetic
 
-pinyinEntitys = read_txt_file("CNS_pinyin_1.txt")
-phonetics = read_phonetic('CNS_phonetic.txt')
+def get_mapping(file1, file2):
 
-phoneticsMapping = {}
+    pinyinEntitys = read_txt_file(file1)
+    phonetics = read_phonetic(file2)
 
-for key, value in phonetics.items():
-    phoneticsMapping[key] = pinyinEntitys[value]
+    phoneticsMapping = {}
 
+    for key, value in phonetics.items():
+        phoneticsMapping[key] = pinyinEntitys[value]
 
+    return phoneticsMapping

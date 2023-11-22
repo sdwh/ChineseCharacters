@@ -24,9 +24,9 @@ def create_character_info(char):
     try:
         unicode_hex = int('0x' + char[0], 16)
         word = chr(unicode_hex)
-        cns = readCNS.cns_mapping[char[0].upper()]
-        pinyin = readPinyin.phoneticsMapping[cns]
-        stroke = readStroke.strokes[cns]
+        cns = cns_mapping[char[0].upper()]
+        pinyin = phoneticsMapping[cns]
+        stroke = strokes[cns]
 
         return CharacterInfo(
             unicode_number=char[0].upper(),
@@ -46,6 +46,9 @@ def create_character_info(char):
         print(f"An error occurred: {e}")
 
 res = []
+cns_mapping = readCNS.load_cns_mapping('CNS2UNICODE_Unicode*.txt')
+phoneticsMapping = readPinyin.get_mapping("CNS_pinyin_1.txt", 'CNS_phonetic.txt')
+strokes = readStroke.read_stroke('CNS_stroke.txt')
 
 with open('output.txt', 'w', encoding='utf8') as file:
     for char in chars.chars2:
